@@ -78,7 +78,9 @@ select {
 /* =========================================================
    CONTAINER
    ========================================================= */
-
+section {
+  scroll-margin-top: 80px;
+}
 .container {
     width: 92%;
     max-width: var(--max-width);
