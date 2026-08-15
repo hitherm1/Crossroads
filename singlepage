@@ -78,7 +78,7 @@
                     ABOUT
                 </a>                
 
-                <a href="live.html">
+                <a href="#live">
                     LIVE &amp; VIDEOS
                 </a>
 
@@ -475,7 +475,9 @@
             </div>
 
         </div>
-
+<section id="live">
+   <h1>Live</h1>
+</section>
 
         <div class="container footer-bottom">
 
