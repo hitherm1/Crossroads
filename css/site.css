@@ -74,86 +74,15 @@ select {
     font-family: inherit;
 }
 
-```css
-/* =========================================
-   MEMBER PORTAL DROPDOWN
-   ========================================= */
-
-.nav-dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.nav-dropdown-button {
-    background: none;
-    border: none;
-    color: inherit;
-    font: inherit;
-    cursor: pointer;
-    padding: 0;
-}
-
-.nav-dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 220px;
-    z-index: 1000;
-}
-
-.nav-dropdown:hover .nav-dropdown-content,
-.nav-dropdown:focus-within .nav-dropdown-content {
-    display: block;
-}
-
-.nav-dropdown-content a {
-    display: block;
-    padding: 10px 15px;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-
-    .nav-dropdown {
-        width: 100%;
-    }
-
-    .nav-dropdown-button {
-        width: 100%;
-        text-align: left;
-    }
-
-    .nav-dropdown-content {
-        position: static;
-        width: 100%;
-        box-shadow: none;
-        border-radius: 0;
-        background: transparent;
-        padding-left: 20px;
-    }
-
-    .nav-dropdown-content a {
-        color: inherit;
-        padding: 10px 15px;
-    }
-
-    .nav-dropdown-content a:hover,
-    .nav-dropdown-content a:focus {
-        background-color: rgba(255, 255, 255, 0.1);
-        color: inherit;
-    }
-}
-```
 
 /* =========================================================
    CONTAINER
    ========================================================= */
+
 section {
-  scroll-margin-top: 180px;
+    scroll-margin-top: 180px;
 }
+
 .container {
     width: 92%;
     max-width: var(--max-width);
@@ -249,7 +178,7 @@ section {
 
 
 /* =========================================================
-   NAVIGATION
+   MAIN NAVIGATION
    ========================================================= */
 
 .main-navigation {
@@ -260,7 +189,10 @@ section {
     gap: 28px;
 }
 
-.main-navigation a {
+
+/* Standard navigation links */
+
+.main-navigation > a {
     color: var(--text);
 
     font-size: 13px;
@@ -271,10 +203,167 @@ section {
 
     transition:
         color 0.2s ease;
+
+    white-space: nowrap;
 }
 
-.main-navigation a:hover,
-.main-navigation a.active {
+.main-navigation > a:hover,
+.main-navigation > a.active {
+    color: var(--gold);
+}
+
+
+/* =========================================================
+   MEMBER PORTAL
+   ========================================================= */
+
+.nav-dropdown {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    height: 100%;
+}
+
+
+/* Member Portal button */
+
+.nav-dropdown-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 0;
+
+    border: 0;
+
+    background: transparent;
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.06em;
+
+    line-height: 1.65;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+/* Member Portal hover */
+
+.nav-dropdown:hover .nav-dropdown-button,
+.nav-dropdown:focus-within .nav-dropdown-button {
+    color: var(--gold);
+}
+
+
+/* Dropdown arrow */
+
+.dropdown-arrow {
+    display: inline-block;
+
+    font-size: 11px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.2s ease;
+}
+
+
+/* Rotate arrow */
+
+.nav-dropdown:hover .dropdown-arrow,
+.nav-dropdown:focus-within .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* =========================================================
+   MEMBER PORTAL DROPDOWN MENU
+   ========================================================= */
+
+.nav-dropdown-content {
+    display: none;
+
+    position: absolute;
+
+    top: calc(100% + 1px);
+
+    left: 0;
+
+    min-width: 235px;
+
+    padding: 7px 0;
+
+    background: var(--white);
+
+    border: 1px solid var(--line);
+
+    box-shadow: var(--shadow);
+
+    z-index: 2000;
+}
+
+
+/* Show dropdown */
+
+.nav-dropdown:hover .nav-dropdown-content,
+.nav-dropdown:focus-within .nav-dropdown-content {
+    display: block;
+}
+
+
+/* Dropdown links */
+
+.nav-dropdown-content a {
+    display: block;
+
+    width: 100%;
+
+    padding: 10px 18px;
+
+    color: var(--text);
+
+    background: var(--white);
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.03em;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* Dropdown hover */
+
+.nav-dropdown-content a:hover,
+.nav-dropdown-content a:focus {
+    background: var(--cream);
+
     color: var(--gold);
 }
 
@@ -318,14 +407,6 @@ section {
     color: var(--white);
 
     background-color: var(--blue);
-
-    /*
-       Add your own hero image as:
-
-       images/hero.jpg
-
-       The image will automatically be used.
-    */
 
     background-image:
         url("../images/hero.jpg");
@@ -1142,6 +1223,10 @@ blockquote cite {
     }
 
 
+    /* =========================================
+       MOBILE MAIN NAVIGATION
+       ========================================= */
+
     .main-navigation {
         display: none;
 
@@ -1155,7 +1240,7 @@ blockquote cite {
 
         flex-direction: column;
 
-        align-items: flex-start;
+        align-items: stretch;
 
         gap: 0;
 
@@ -1176,7 +1261,7 @@ blockquote cite {
     }
 
 
-    .main-navigation a {
+    .main-navigation > a {
         width: 100%;
 
         padding: 13px 0;
@@ -1184,6 +1269,88 @@ blockquote cite {
         border-bottom:
             1px solid
             var(--line);
+    }
+
+
+    /* =========================================
+       MOBILE MEMBER PORTAL
+       ========================================= */
+
+    .nav-dropdown {
+        display: block;
+
+        width: 100%;
+
+        border-bottom:
+            1px solid
+            var(--line);
+    }
+
+
+    .nav-dropdown-button {
+        width: 100%;
+
+        justify-content: space-between;
+
+        padding: 13px 0;
+
+        text-align: left;
+    }
+
+
+    .nav-dropdown-content {
+        position: static;
+
+        display: none;
+
+        width: 100%;
+
+        min-width: 0;
+
+        margin: 0;
+
+        padding: 0 0 5px 20px;
+
+        background: var(--cream);
+
+        border: 0;
+
+        box-shadow: none;
+    }
+
+
+    .nav-dropdown:hover .nav-dropdown-content {
+        display: none;
+    }
+
+
+    .nav-dropdown:focus-within .nav-dropdown-content {
+        display: block;
+    }
+
+
+    .nav-dropdown-content a {
+        width: 100%;
+
+        padding: 10px 15px;
+
+        color: var(--text);
+
+        background: transparent;
+
+        font-size: 12px;
+
+        border-bottom:
+            1px solid
+            rgba(0,0,0,0.08);
+    }
+
+
+    .nav-dropdown-content a:hover,
+    .nav-dropdown-content a:focus {
+        background: rgba(195,154,74,0.10);
+
+        color: var(--gold);
     }
 
 
@@ -1236,9 +1403,12 @@ blockquote cite {
 
         gap: 5px;
     }
-
 }
 
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
 
 @media (max-width: 500px) {
 
@@ -1285,5 +1455,5 @@ blockquote cite {
     .event-date {
         width: 82px;
     }
+} 
 
-}
